@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Mahoroba</title>
+	<link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
+	<link href="stylesheets/ngview.css" rel="stylesheet">
+	<style>
+#ngview {
+	width: 800px;
+	height: 800px;
+	background-color: #000;
+}
+
+	</style>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/letteringjs/jquery.lettering.js"></script>
+	<script src="bower_components/textillate/jquery.textillate.js"></script>
+	<script src="js/ngview.js"></script>
+	<script>
+window.onload = function() {
+	console.log("on loaded");
+	window.ngView = new NovelGameView("#ngview", "#layers");
+	window.ngView.playPage();
+}
+	</script>
+</head>
+
+<body>
+	<div  class="content">
+		<div id="layers"></div>
+		<div id="ngview">
+			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">
+				<span>稲妻のような切っ先が襲いかかる。
+					<br>
+				</span>
+				<span>槍の穂先は寸分の狂いもなく正確に、自分の心臓に向けられている。自分は剣を振り下ろした直後で身動きができない。
+					<br>
+				</span>
+				<span>その距離約1メートル弱。あと数コンマ秒でその穂先は心臓を抉り出し、心臓を無くした哀れな戦士は数秒後に絶命するだろう。
+					<br>
+				</span>
+			</div>
+			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">
+				<span>だが。
+				</span>
+				<br>
+				<span>この身を貫こうとする稲妻は、稲妻よりも更に疾く飛来した光の奔流によって掻き消された。
+				</span>
+				<br>
+				<span>連続する魔法音、背景魔法画像ももっと派手に
+				</span>
+				<br>
+			</div>
+			<!-- <div class="ngview_page font_white_with_pseudo_stroke page_bg_black" style="display: block; opacity: 1; transition-duration: 0.2s; -webkit-transition-duration: 0.2s;">
+				<span ondblclick="ngView.page.clearPage(1)" data-ngv-no-stop-paragraph="true"></span>
+				<br>
+				<span ondblclick="ngView.bgImage.crossFadeImage('layer0', 'assets/novel/effect_bg/magic.jpg', {duration:'0.2', className:'centering_adjust_window_max_by_width bg'})" data-ngv-no-stop-paragraph="true"></span>
+				<span data-ngv-wait-seconds="1.5" data-ngv-no-stop-paragraph="true"></span>
+				<span ondblclick="ngView.bgImage.fadeOutBgColor('layer0', {duration:'3'})" data-ngv-no-stop-paragraph="true"></span>
+				<span ondblclick="ngView.bgImage.clearLayer('layer0', {duration:'3'})" data-ngv-no-stop-paragraph="true"></span>
+				<span data-ngv-wait-seconds="5" data-ngv-no-stop-paragraph="true"></span>
+				<span ondblclick="ngView.bgImage.blackOut('layer0', {duration:1, rgba:[1,2,3,4]})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_0" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
+				<span ondblclick="ngView.bgImage.crossFadeImage('layer0', 'assets/novel/background/dangeon4.jpg', {duration:'0.2', className:'centering_adjust_window_max_by_width bg'})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_1" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
+				<span ondblclick="ngView.bgImage.crossFadeImage('layer1', 'assets/novel/tatie/herena/herena_A_04.png', {duration:'0.2', className:'tatie_center'})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_2" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
+				<span ondblclick="ngView.page.showPage(1)" data-ngv-no-stop-paragraph="true"></span>
+				<br>
+				<span>「何ボーっとしてるの!! 死にたいの!?」</span>
+				<br>
+				<span ondblclick="ngView.sounds.playBgm('sounds/tenteki.mp3')" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_5" style="opacity: 0; -webkit-animation-play-state: paused;"></span>
+				<span>(魔法効果音連続、女魔法使いが奮戦している演出)</span>
+				<span>女は無詠唱呪文を続けざまに発動し、敵の軍勢めがけて光を放つ。特にこちらに向かおうとしている相手から優先的に撃破してくれているようだった。</span>
+				<br>
+				<span>心遣いに感謝しつつ体勢を整えていると、他の仲間が駆け寄ってくる。</span>
+				<br>
+			</div>
+			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black" style="display: none;">
+				<span ondblclick="ngView.bgImage.crossFadeImage('layer1', 'assets/novel/tatie/sisuka/sisuka_A_05.png', {duration:'0.2', className:'tatie_left'})" data-ngv-no-stop-paragraph="true"></span>
+				<span ondblclick="ngView.page.clearPageASeconds(0.5)" data-ngv-wait-seconds="0.5" data-ngv-no-stop-paragraph="true"></span>
+				<span>「大丈夫？ちょっと一人で突出しすぎよ」</span>
+				<br>
+				<span ondblclick="ngView.bgImage.crossFadeImage('layer2', 'assets/novel/tatie/eto/eto_A_02.png', {duration:'0.2', className:'tatie_right'})" data-ngv-no-stop-paragraph="true"></span>
+				<span ondblclick="ngView.page.clearPageASeconds(0.5)" data-ngv-wait-seconds="0.5" data-ngv-no-stop-paragraph="true"></span>
+				<span>「機関銃娘の魔法に感謝だね〜」</span>
+				<br>
+				<span>「誰が機関銃娘よ!!」</span>
+				<br>
+				<span>遠くで叫ぶ女は、一人多数の軍勢に切り込み、周りのものを片っ端から塵と化していく。</span>
+				<br>
+				<span>あれだけは一人で突っ走っていってもなんの不安もないね、とかけよってきた男が悪びれることなく呟いた。</span>
+				<br>
+			</div> -->
+		</div>
+	</div>
+</body>
+</html>

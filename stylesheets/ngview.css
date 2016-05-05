@@ -1,0 +1,243 @@
+@charset "UTF-8";
+/* スマホでタップした際、要素のアウトラインが表示されないようにする */
+/* line 3, ../sass/ngview.css.scss */
+body, p, span, div {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* クリック待ちグリフ */
+/* line 8, ../sass/ngview.css.scss */
+.next-paragraph-glif:before {
+  content: " ▶︎";
+  color: #999;
+  font-size: small;
+  -webkit-animation: my-fadeinout-horizontal 1.5s ease 0s infinite;
+}
+
+@-webkit-keyframes my-fadeinout-horizontal {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(4px);
+  }
+}
+/* line 19, ../sass/ngview.css.scss */
+.next-page-glif:before {
+  content: " ▼";
+  color: #999;
+  font-size: small;
+  -webkit-animation: my-fadeinout-vertical 1.5s ease 0s infinite;
+}
+
+@-webkit-keyframes my-fadeinout-vertical {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+/* 画像レイヤ用 */
+/* line 33, ../sass/ngview.css.scss */
+.ngview_layer {
+  z-index: -10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 41, ../sass/ngview.css.scss */
+.centering_adjust_window_max {
+  /* 画像が収まるように中央表示 */
+}
+
+/* line 46, ../sass/ngview.css.scss */
+.centering_adjust_window_max_by_width {
+  /* 横方向に画像が収まるように中央表示 */
+  max-width: 100%;
+  width: 100%;
+}
+
+/* line 52, ../sass/ngview.css.scss */
+.centering_adjust_window_max_by_height {
+  /* 縦方向に画像が収まるように中央表示 */
+  max-height: 100%;
+  height: 100%;
+}
+
+/* line 58, ../sass/ngview.css.scss */
+.centering_adjust_cinema_height {
+  /* シネマビューっぽく、縦方向に60%の大きさで画像が収まるように中央表示 */
+  max-height: 60%;
+}
+
+/* line 63, ../sass/ngview.css.scss */
+.bg {
+  -webkit-filter: blur(2px);
+}
+
+/* line 67, ../sass/ngview.css.scss */
+.tatie_center {
+  max-height: 60%;
+}
+
+/* line 72, ../sass/ngview.css.scss */
+.tatie_right {
+  max-height: 60%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 50%;
+  /* なぜかrightとleftでmarginが常に右にかかってしまう。この挙動わかってない */
+  margin: auto;
+}
+
+/* line 82, ../sass/ngview.css.scss */
+.tatie_left {
+  max-height: 60%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 95%;
+  left: 0px;
+  margin: auto;
+}
+
+/* line 92, ../sass/ngview.css.scss */
+#filter_black {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-filter: blur(30px);
+  z-index: -1;
+}
+
+/* 画像レイヤ演出 */
+/* line 105, ../sass/ngview.css.scss */
+.scroll_layer {
+  /* 画像をスクロールする。大きめの画像をフレーム付きで読み込んで使うと良い */
+  -webkit-animation: scroll_layer 5s linear 0s 1;
+}
+
+@-webkit-keyframes my-fadeinout2 {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+/* common */
+/* line 118, ../sass/ngview.css.scss */
+.vh_centering, .centering_adjust_window_max, .centering_adjust_window_max_by_width, .centering_adjust_window_max_by_height, .centering_adjust_cinema_height, .tatie_center {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  margin: auto;
+}
+
+/* line 127, ../sass/ngview.css.scss */
+.adjust_window_max, .centering_adjust_window_max {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* line 132, ../sass/ngview.css.scss */
+.font_white_with_pseudo_stroke {
+  /* 微量のグロウで袋文字っぽく */
+  color: white;
+  text-shadow: 0px 0px 1px black, 0px 0px 2px black, 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black;
+}
+
+/* line 137, ../sass/ngview.css.scss */
+.font_black_with_pseudo_stroke {
+  /* 微量のグロウで袋文字っぽく */
+  color: black;
+  text-shadow: 0px 0px 4px white;
+}
+
+/* not necessary */
+/* line 145, ../sass/ngview.css.scss */
+.ngview-fadein-animation {
+  -webkit-animation: ngview-fadein-animation 1s;
+  z-index: 100;
+}
+
+@-webkit-keyframes ngview-fadein-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 154, ../sass/ngview.css.scss */
+.ngview-fadein-and-bounce {
+  -webkit-animation: ngview-fadein-and-bounce 5s;
+  z-index: 100;
+}
+
+@-webkit-keyframes ngview-fadein-and-bounce {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  80% {
+    transform: translateY(0px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* line 171, ../sass/ngview.css.scss */
+.ngview_bounce {
+  -webkit-animation: ngview_bounce 0.3s linear;
+}
+
+@-webkit-keyframes ngview_bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

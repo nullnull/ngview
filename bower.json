@@ -1,0 +1,16 @@
+{
+  "name": "ngview",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nullnull/ngview",
+  "authors": [
+    "katsuma.narisawa <face.the.music721@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
