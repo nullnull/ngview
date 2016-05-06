@@ -141,7 +141,6 @@
         this.currentParagraph++;
         return this._playParagraph(this.currentParagraph);
       } else if (this.isStatusBusy()) {
-        alert(this.status);
         if (this.isStatusPrint()) {
           return this._skipInAnimation(this.currentParagraph);
         } else {

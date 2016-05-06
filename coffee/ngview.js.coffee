@@ -104,7 +104,7 @@ class NovelGameView.Page
             @currentParagraph++
             @_playParagraph(@currentParagraph)
         else if @isStatusBusy()  # 描画中
-            alert(@status)
+            # alert(@status)
             if @isStatusPrint()
                 @_skipInAnimation(@currentParagraph)
             else
