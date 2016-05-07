@@ -30,4 +30,4 @@ NovelGameView はhtmlページにノベルゲーム風の表示を簡単に取�
 
 ## Author
 
-[tcnksm](https://github.com/tcnksm)
+[nullnull](https://github.com/nullnull)
