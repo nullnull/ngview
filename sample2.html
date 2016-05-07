@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Mahoroba</title>
+	<link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
+	<link href="stylesheets/ngview.css" rel="stylesheet">
+	<style>
+#ngview {
+	width: 800px;
+	height: 800px;
+	background-color: #000;
+}
+
+	</style>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/letteringjs/jquery.lettering.js"></script>
+	<script src="bower_components/textillate/jquery.textillate.js"></script>
+	<script src="js/ngview.js"></script>
+	<script>
+window.onload = function() {
+	var sample_script = $("#sample_script").html()
+	window.ngView = new NovelGameView("#ngview", "#layers");
+	window.ngView.loadScriptAndPlayPage(sample_script);
+}
+	</script>
+</head>
+
+<body>
+	<div class="content">
+		<div id="layers"></div>
+		<div id="ngview"></div>
+	</div>
+
+	<div id="sample_script" style="display:none">NovelGameViewのサンプル2です。
+
+このように、特定の書式で書かれた文字列をNovelGameViewに引き渡すことで
+ほげ</div>
+</body>
+</html>

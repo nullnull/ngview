@@ -1,6 +1,38 @@
 (function() {
-  var NovelGameView,
+  var NovelGameView, ScriptToHTMLConverter,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
+  ScriptToHTMLConverter = (function() {
+    function ScriptToHTMLConverter() {}
+
+    ScriptToHTMLConverter.prototype.html_config = {
+      paragraph_start: "\t<span>",
+      paragraph_end: "</span><br>\n",
+      page_start: '<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">\n',
+      page_end: "</div>"
+    };
+
+    ScriptToHTMLConverter.prototype.convertSimpleFormat = function(script) {
+      var html_page, html_page_list, html_paragraph, output_html, script_per_page, script_per_page_list, script_per_paragraph_list, _i, _len;
+      html_page_list = [];
+      script_per_page_list = script.split(/\n\n/);
+      for (_i = 0, _len = script_per_page_list.length; _i < _len; _i++) {
+        script_per_page = script_per_page_list[_i];
+        script_per_paragraph_list = script_per_page.split(/\n/);
+        html_paragraph = this.html_config.paragraph_start + script_per_paragraph_list.join(this.html_config.paragraph_end + this.html_config.paragraph_start) + this.html_config.paragraph_end;
+        html_page = this.html_config.page_start + html_paragraph + this.html_config.page_end;
+        html_page_list.push(html_page);
+      }
+      output_html = html_page_list.join("\n");
+      console.log(output_html);
+      return output_html;
+    };
+
+    return ScriptToHTMLConverter;
+
+  })();
+
+  window.ScriptToHTMLConverter = ScriptToHTMLConverter;
 
   NovelGameView = (function() {
     NovelGameView.prototype.pageClassName = "page_";
@@ -47,8 +79,15 @@
       return deferred.promise();
     };
 
-    NovelGameView.prototype.loadAndPlayPage = function(data) {
-      this.viewObj.append($(data));
+    NovelGameView.prototype.loadScriptAndPlayPage = function(script) {
+      var converter, html;
+      converter = new ScriptToHTMLConverter;
+      html = converter.convertSimpleFormat(script);
+      return this.loadAndPlayPage(html);
+    };
+
+    NovelGameView.prototype.loadAndPlayPage = function(html) {
+      this.viewObj.append($(html));
       this._addPageClass();
       return this.playPage();
     };

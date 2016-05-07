@@ -1,3 +1,25 @@
+class ScriptToHTMLConverter
+	html_config: {
+		paragraph_start: "\t<span>",
+		paragraph_end:   "</span><br>\n",
+		page_start: '<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">\n',  # TODO: ここのクラス指定を自由にできるようにする
+		page_end:   "</div>",
+	}
+
+	convertSimpleFormat: (script) ->
+		html_page_list = []
+		script_per_page_list = script.split(/\n\n/)
+		for script_per_page in script_per_page_list
+			script_per_paragraph_list = script_per_page.split(/\n/)
+			html_paragraph = @html_config.paragraph_start + script_per_paragraph_list.join(@html_config.paragraph_end + @html_config.paragraph_start) + @html_config.paragraph_end
+			html_page = @html_config.page_start + html_paragraph + @html_config.page_end
+			html_page_list.push(html_page)
+		output_html = html_page_list.join("\n")
+		console.log(output_html)
+		return output_html
+
+window.ScriptToHTMLConverter = ScriptToHTMLConverter  # これ必要なのだっけ？
+
 class NovelGameView
     pageClassName: "page_"
 
@@ -29,8 +51,13 @@ class NovelGameView
             deferred.resolve()
         return deferred.promise()
 
-    loadAndPlayPage: (data) ->
-        @viewObj.append($(data))
+    loadScriptAndPlayPage: (script) ->
+        converter = new ScriptToHTMLConverter
+        html = converter.convertSimpleFormat(script)
+        @loadAndPlayPage(html)
+
+    loadAndPlayPage: (html) ->
+        @viewObj.append($(html))
         @_addPageClass()
         @playPage()
 
