@@ -3,17 +3,11 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Mahoroba</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>NovelGameViewSample1</title>
 	<link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
 	<link href="stylesheets/ngview.css" rel="stylesheet">
-	<style>
-#ngview {
-	width: 800px;
-	height: 800px;
-	background-color: #000;
-}
-
-	</style>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/letteringjs/jquery.lettering.js"></script>
 	<script src="bower_components/textillate/jquery.textillate.js"></script>
@@ -25,69 +19,84 @@ window.onload = function() {
 	window.ngView.playPage();
 }
 	</script>
+
+	<style>
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  font-weight: 100;
+  color: #FFF;
+}
+
+.header {
+	width: 100%;
+	height: 200px;
+	background-color: rgb(2,209,174);
+}
+
+.header .header-title {
+	font-family: "Helvetica Neue";
+	font-weight: 100;
+	text-align: center;
+	font-size: 2em;
+}
+
+@media screen and (min-width: 900px) {
+	.header .header-title {
+		font-size: 4em;
+	}
+}
+
+.content {
+	width: 700px;
+	max-width: 100%;
+	height: 100%;
+	margin: auto;
+	height: 100%;
+	color: #555;
+}
+
+span {
+	font-family: "Hiragino Sans";
+	font-weight: 100;
+}
+
+/* note: ngviewのclickでイベントが発火するので、以下のように書くと画面隅などをクリックしてもイベントが発火しません。改修予定 */
+#ngview {
+	padding-top: 20px;
+	width:  100%;
+	height: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+	</style>
 </head>
 
 <body>
-	<div  class="content">
+	<div class="header">
+		<div class="header-title">NovelGameView.js</div>
+	</div>
+	<div class="content">
 		<div id="layers"></div>
 		<div id="ngview">
-			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">
-				<span>稲妻のような切っ先が襲いかかる。</span>
+			<div>
+				<span>NovelGameViewのサンプルになります。</span><br>
+				<span>通常であれば単純に表示されるだけのテキストも</span><br>
+				<span>こうして一行一行表示させるだけで、印象的な表示になります。</span><br>
 				<br>
-				<span>槍の穂先は寸分の狂いもなく正確に、自分の心臓に向けられている。自分は剣を振り下ろした直後で身動きができない。</span>
+				<span>このように</span><br>
+				<span>クリックなしで自動で表示を行うことも</span><br>
+				<span>可能です。</span><br>
+				<span>Webページ用にはその方が使い勝手が良いかもしれません。</span><br>
 				<br>
-				<span>その距離約1メートル弱。あと数コンマ秒でその穂先は心臓を抉り出し、心臓を無くした哀れな戦士は数秒後に絶命するだろう。</span>
-				<br>
+				<span></span><br>
+				<span></span><br>
+				<span></span><br>
+				<span></span><br>
 			</div>
-			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black">
-				<span>だが。
-				</span>
-				<br>
-				<span>この身を貫こうとする稲妻は、稲妻よりも更に疾く飛来した光の奔流によって掻き消された。
-				</span>
-				<br>
-				<span>連続する魔法音、背景魔法画像ももっと派手に
-				</span>
-				<br>
-			</div>
-			<!-- <div class="ngview_page font_white_with_pseudo_stroke page_bg_black" style="display: block; opacity: 1; transition-duration: 0.2s; -webkit-transition-duration: 0.2s;">
-				<span ondblclick="ngView.page.clearPage(1)" data-ngv-no-stop-paragraph="true"></span>
-				<br>
-				<span ondblclick="ngView.bgImage.crossFadeImage('layer0', 'assets/novel/effect_bg/magic.jpg', {duration:'0.2', className:'centering_adjust_window_max_by_width bg'})" data-ngv-no-stop-paragraph="true"></span>
-				<span data-ngv-wait-seconds="1.5" data-ngv-no-stop-paragraph="true"></span>
-				<span ondblclick="ngView.bgImage.fadeOutBgColor('layer0', {duration:'3'})" data-ngv-no-stop-paragraph="true"></span>
-				<span ondblclick="ngView.bgImage.clearLayer('layer0', {duration:'3'})" data-ngv-no-stop-paragraph="true"></span>
-				<span data-ngv-wait-seconds="5" data-ngv-no-stop-paragraph="true"></span>
-				<span ondblclick="ngView.bgImage.blackOut('layer0', {duration:1, rgba:[1,2,3,4]})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_0" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
-				<span ondblclick="ngView.bgImage.crossFadeImage('layer0', 'assets/novel/background/dangeon4.jpg', {duration:'0.2', className:'centering_adjust_window_max_by_width bg'})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_1" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
-				<span ondblclick="ngView.bgImage.crossFadeImage('layer1', 'assets/novel/tatie/herena/herena_A_04.png', {duration:'0.2', className:'tatie_center'})" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_2" style="opacity: 100; -webkit-animation-play-state: paused;"></span>
-				<span ondblclick="ngView.page.showPage(1)" data-ngv-no-stop-paragraph="true"></span>
-				<br>
-				<span>「何ボーっとしてるの!! 死にたいの!?」</span>
-				<br>
-				<span ondblclick="ngView.sounds.playBgm('sounds/tenteki.mp3')" data-ngv-no-stop-paragraph="true" class="paragraph paragraph_5" style="opacity: 0; -webkit-animation-play-state: paused;"></span>
-				<span>(魔法効果音連続、女魔法使いが奮戦している演出)</span>
-				<span>女は無詠唱呪文を続けざまに発動し、敵の軍勢めがけて光を放つ。特にこちらに向かおうとしている相手から優先的に撃破してくれているようだった。</span>
-				<br>
-				<span>心遣いに感謝しつつ体勢を整えていると、他の仲間が駆け寄ってくる。</span>
-				<br>
-			</div>
-			<div class="ngview_page font_white_with_pseudo_stroke page_bg_black" style="display: none;">
-				<span ondblclick="ngView.bgImage.crossFadeImage('layer1', 'assets/novel/tatie/sisuka/sisuka_A_05.png', {duration:'0.2', className:'tatie_left'})" data-ngv-no-stop-paragraph="true"></span>
-				<span ondblclick="ngView.page.clearPageASeconds(0.5)" data-ngv-wait-seconds="0.5" data-ngv-no-stop-paragraph="true"></span>
-				<span>「大丈夫？ちょっと一人で突出しすぎよ」</span>
-				<br>
-				<span ondblclick="ngView.bgImage.crossFadeImage('layer2', 'assets/novel/tatie/eto/eto_A_02.png', {duration:'0.2', className:'tatie_right'})" data-ngv-no-stop-paragraph="true"></span>
-				<span ondblclick="ngView.page.clearPageASeconds(0.5)" data-ngv-wait-seconds="0.5" data-ngv-no-stop-paragraph="true"></span>
-				<span>「機関銃娘の魔法に感謝だね〜」</span>
-				<br>
-				<span>「誰が機関銃娘よ!!」</span>
-				<br>
-				<span>遠くで叫ぶ女は、一人多数の軍勢に切り込み、周りのものを片っ端から塵と化していく。</span>
-				<br>
-				<span>あれだけは一人で突っ走っていってもなんの不安もないね、とかけよってきた男が悪びれることなく呟いた。</span>
-				<br>
-			</div> -->
 		</div>
 	</div>
 </body>
